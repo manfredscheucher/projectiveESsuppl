@@ -20,6 +20,8 @@ parser.add_argument("--symmetrybreaking",action='store_false',help="by default b
 
 parser.add_argument("-a","--all",action='store_true', help="enumerate all configurations")
 parser.add_argument("-o","--output", help="if specified, export CNF to this file")
+parser.add_argument("-i","--inccnf", help="export inccnf for cubing")
+
 parser.add_argument("--solver", choices=['cadical', 'pycosat'], help="SAT solver")
 
 args = parser.parse_args()
@@ -132,7 +134,11 @@ print("creating time:",time_before_solving-time_start)
 if args.output:
 	print ("write cnf instance to file:",args.output)
 	with open(args.output,"w") as f:
-		f.write("p inccnf\n")
+		#f.write("p inccnf\n")
+		if args.inccnf:
+			f.write("p inccnf\n")
+		else:
+			f.write("p cnf "+str(num_vars)+" "+str(len(constraints))+"\n")
 		for c in constraints:
 			f.write(" ".join(str(x) for x in c)+" 0\n")
 
