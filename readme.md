@@ -52,5 +52,5 @@ for single threaded run
 ```
 python projective_ES.py 18 7 0 --solver cadical
 ```
-The computations take about 34 CPU days. (with cubes, TODO: single threaded)
+The computations should take at most 34 CPU days. 
 -->
