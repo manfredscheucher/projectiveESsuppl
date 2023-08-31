@@ -5,6 +5,13 @@ see http://arxiv.org/abs/2203.07518
 
 
 
+# Setup 
+
+We provide a python script `projective_ES.py` that can generate a CNF for a particular question.
+One can install the interface [pysat](https://pysathq.github.io/installation/) to the solver cadical and solve the CNF directly from python via the parameter `--solver cadical`. Alternatively one can export the CNF in DIMACS form via `-o file` and run a solver like [cadical](https://github.com/arminbiere/cadical) manually on that instance.
+
+
+
 # SAT framework
 
 We extended the SAT framework from "Two Disjoint 5-Holes in Point Sets" (http://arxiv.org/abs/1807.10848)
@@ -16,7 +23,7 @@ so that it can operate on projective k-gons and projective k-holes.
 To verify that every set of 9 points yields a projective 6-gon,
 run
 ```
-python scripts/projective_ES.py 9 6 0 --solver cadical
+python projective_ES.py 9 6 0 --solver cadical
 ```
 The computations take less than one CPU second.
 
@@ -26,9 +33,9 @@ The computations take less than one CPU second.
 To verify that every set of 16 points yields a projective 6-hole,
 run
 ```
-python scripts/projective_ES.py 16 6 1 --solver cadical
+python projective_ES.py 16 6 1 --solver cadical
 ```
-The computations take about 10 CPU minutes.
+The computations take about 5 CPU minutes.
 
 
 ## projective 7-gons
@@ -36,8 +43,14 @@ The computations take about 10 CPU minutes.
 To verify that every set of X points yields a projective 7-gon,
 run
 ```
-python scripts/projective_ES.py 18 7 0 --solver cadical
+python projective_ES.py 18 7 0 -o instance_18_7_0.cnf && gimsatul instance_18_7_0.cnf --threads=32
 ```
-The computations take about X CPU minutes.
+The computations take about 34 CPU days in total on a 32 core machine.
 
-!!TODO!!
+<---
+for single threaded run
+```
+python projective_ES.py 18 7 0 --solver cadical
+```
+The computations take about 34 CPU days. (with cubes, TODO: single threaded)
+-->
