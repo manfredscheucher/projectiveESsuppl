@@ -8,7 +8,7 @@ see http://arxiv.org/abs/2203.07518
 # Setup 
 
 We provide a python script `projective_ES.py` that can generate a CNF for a particular question.
-One can install the interface [pysat](https://pysathq.github.io/installation/) to the solver cadical and solve the CNF directly from python via the parameter `--solver cadical`. Alternatively one can export the CNF in DIMACS form via `-o file` and run a solver like [cadical](https://github.com/arminbiere/cadical) manually on that instance.
+One can install the interface [pysat](https://pysathq.github.io/installation/) to the solver cadical and solve the CNF directly from python via the parameter `--solver cadical`. Alternatively one can export the CNF in DIMACS form via `-o file` and run a solver like [cadical](https://github.com/arminbiere/cadical) or [gimsatul](https://github.com/arminbiere/gimsatul) manually on that instance.
 
 
 
