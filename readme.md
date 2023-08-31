@@ -46,11 +46,3 @@ run
 python projective_ES.py 18 7 0 -o instance_18_7_0.cnf && gimsatul instance_18_7_0.cnf --threads=32
 ```
 The computations take about 34 CPU days in total on a 32 core machine.
-
-<---
-for single threaded run
-```
-python projective_ES.py 18 7 0 --solver cadical
-```
-The computations should take at most 34 CPU days. 
--->
