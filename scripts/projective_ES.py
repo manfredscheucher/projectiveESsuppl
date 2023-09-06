@@ -144,8 +144,13 @@ if args.output:
 if args.solver:
 	if args.solver == "cadical":
 		print ("use pysat/Cadical")
-		from pysat.solvers import Cadical153	
-		solver = Cadical153()
+		try:
+			from pysat.solvers import Cadical153	
+			solver = Cadical153()
+		except ImportError:
+			from pysat.solvers import Cadical # old pysat versions	
+			solver = Cadical()
+			
 		for c in constraints: solver.add_clause(c)
 		solution_iterator = solver.enum_models()
 	else:
