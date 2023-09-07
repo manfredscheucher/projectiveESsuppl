@@ -21,6 +21,7 @@ parser.add_argument("--symmetrybreaking",action='store_false',help="by default b
 parser.add_argument("-a","--all",action='store_true', help="enumerate all configurations")
 parser.add_argument("-o","--output", help="if specified, export CNF to this file")
 parser.add_argument("-i","--inccnf", action='store_true', help="export inccnf for cubing")
+parser.add_argument("-s2f","--solutions2file", help="if specified, write solutions as chirotopes to this file")
 
 parser.add_argument("--solver", choices=['cadical', 'pycosat'], help="SAT solver")
 
@@ -141,6 +142,9 @@ if args.output:
 		for c in constraints:
 			f.write(" ".join(str(x) for x in c)+" 0\n")
 
+if args.solutions2file:
+	args.solutions2file = open(args.solutions2file,"w")
+
 if args.solver:
 	if args.solver == "cadical":
 		print ("use pysat/Cadical")
@@ -150,7 +154,7 @@ if args.solver:
 		except ImportError:
 			from pysat.solvers import Cadical # old pysat versions	
 			solver = Cadical()
-			
+
 		for c in constraints: solver.add_clause(c)
 		solution_iterator = solver.enum_models()
 	else:
@@ -166,6 +170,8 @@ if args.solver:
 		sol = set(sol)
 		s = ''.join('+' if var_chi(*I) in sol else "-" for I in combinations(N,3))
 		print("solution #",ct,s)
+		if args.solutions2file:
+			args.solutions2file.write(s+"\n")
 		if not args.all: break
 
 	print("number of solutions:",ct)
