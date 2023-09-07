@@ -40,9 +40,9 @@ The computations take about 5 CPU minutes.
 
 ## projective 7-gons
 `n17_no_p7g.json` encodes a set of 17 points with no projective 7-gon. 
-To verify that every set of X points yields a projective 7-gon,
+To verify that every set of 19 points yields a projective 7-gon,
 run
 ```
-python projective_ES.py 18 7 0 -o instance_18_7_0.cnf && gimsatul instance_18_7_0.cnf --threads=32
+python projective_ES.py 19 7 0 -o instance_19_7_0.cnf && gimsatul instance_19_7_0.cnf --threads=32
 ```
 The computations take about 34 CPU days in total on a 32 core machine.
