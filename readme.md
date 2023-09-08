@@ -39,7 +39,7 @@ The computations take about 5 CPU minutes.
 
 
 ## projective 7-gons
-`n17_no_p7g.json` encodes a set of 17 points with no projective 7-gon. 
+`n18_no_p7g.json` encodes a set of 18 points with no projective 7-gon. 
 To verify that every set of 19 points yields a projective 7-gon,
 run
 ```
