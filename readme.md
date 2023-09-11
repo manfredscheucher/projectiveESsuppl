@@ -59,7 +59,7 @@ First we ran
 ```
 python projective_ES.py 18 7 0 --solver cadical --all --solutions2file sol18_7_0.txt
 ```
-to enumerate all chirotopes which do not yield a 18-gon.
+to enumerate all chirotopes on 18 elements which do not yield a projective 7-gon.
 We then used an implementation 
 of the method of biquadratic final polynomials 
 to show that all found chirotopes are actually non-realizable as pointsets.
