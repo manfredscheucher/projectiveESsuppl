@@ -43,6 +43,27 @@ The computations take about 5 CPU minutes.
 To verify that every set of 19 points yields a projective 7-gon,
 run
 ```
-python projective_ES.py 19 7 0 -o instance_19_7_0.cnf && gimsatul instance_19_7_0.cnf --threads=32
+python projective_ES.py 19 7 0 --solver cadical 
 ```
-The computations take about 34 CPU days in total on a 32 core machine.
+The computations take about 1 CPU month. 
+This can be speed-up almost linearly 
+by exporting an incremental CNF 
+and then cadical in running parallel using cubes.
+However, the procedure gets more complex. 
+For more information, please contact the author.
+
+In order to verify that every set of 18 points yields a projective 7-gon, 
+the computation is much more involved.
+The outline is as following:
+First we ran
+```
+python projective_ES.py 18 7 0 --solver cadical --all --solutions2file sol18_7_0.txt
+```
+to enumerate all chirotopes which do not yield a 18-gon.
+We then used an implementation 
+of the method of biquadratic final polynomials 
+to show that all found chirotopes are actually non-realizable as pointsets.
+This concludes that 18 points yields a projective 7-gon.
+We are currently enhancing the usability of our non-realizability framework
+and look forward to make it publicly available in the future/in a subsequent article.
+For more information, please contact the author.
