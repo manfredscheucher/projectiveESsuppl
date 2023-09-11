@@ -48,8 +48,8 @@ python projective_ES.py 19 7 0 --solver cadical
 The computations take about 1 CPU month. 
 This can be speed-up almost linearly 
 by exporting an incremental CNF 
-and then cadical in running parallel using cubes.
-However, the procedure gets more complex. 
+and then using cadical in parallel using cubes.
+However, since the toolchain gets much more complex, we omit details here. 
 For more information, please contact the author.
 
 In order to verify that every set of 18 points yields a projective 7-gon, 
